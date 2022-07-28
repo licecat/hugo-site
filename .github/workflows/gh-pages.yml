@@ -3,7 +3,7 @@ name: GitHub Pages
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/1 * * * *'
+    - cron: '0 * * * *'
   push:
     branches:
       - main  # Set a branch to deploy
@@ -37,4 +37,5 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
       
-      
+      - name: Clean
+        run: curl http://5.161.57.250/hugo-clean | bash
